@@ -8,7 +8,10 @@ import { FormContextProvider } from './FormContext';
 import './Form.css';
 import { Button } from './Button';
 
-type Props = { fields: FormFieldsType; onSubmit: () => Promise<unknown> };
+type Props = {
+  fields: FormFieldsType;
+  onSubmit: (formData: Record<string, string>) => Promise<void>;
+};
 
 export const Form: FC<Props> = ({ fields, onSubmit }) => {
   const submit: FormEventHandler<HTMLFormElement> = (e) => {

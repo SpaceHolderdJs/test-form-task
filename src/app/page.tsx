@@ -7,7 +7,12 @@ import { FormFieldsType } from '@/components/form/types';
 export default function Home() {
   return (
     <div className="w-full flex items-center justify-center min-h-screen bg-slate-800">
-      <Form fields={fields as FormFieldsType} onSubmit={async () => {}} />
+      <Form
+        fields={fields as FormFieldsType}
+        onSubmit={async (data: Record<string, string>) => {
+          alert(JSON.stringify(data, null, 4));
+        }}
+      />
     </div>
   );
 }

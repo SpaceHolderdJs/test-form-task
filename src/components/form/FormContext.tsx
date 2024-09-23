@@ -18,9 +18,9 @@ export const FormContext = createContext(initialValues);
 export const FormContextProvider: FC<
   PropsWithChildren & {
     initialFields: FormFieldsType;
-    onSubmit: () => Promise<unknown>;
+    onSubmit: (data: Record<string, string>) => Promise<unknown>;
   }
-> = ({ children, initialFields }) => {
+> = ({ children, initialFields, onSubmit }) => {
   const [formData, setFormData] = useState({});
   const [errors, setErrors] = useState({});
 
@@ -92,11 +92,11 @@ export const FormContextProvider: FC<
     });
   };
 
-  const onSubmit = async () => {
+  const submit = async () => {
     const errors = validate();
     if (errors && Object.values(errors).some((e) => e)) return;
 
-    alert(JSON.stringify(formData, null, 4));
+    onSubmit(formData);
   };
 
   useEffect(() => {
@@ -111,7 +111,7 @@ export const FormContextProvider: FC<
         errors,
         setFieldValue,
         validate,
-        onSubmit,
+        onSubmit: submit,
       }}>
       {children}
     </FormContext.Provider>
