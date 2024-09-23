@@ -1,0 +1,32 @@
+[
+  {
+    "default_value": "John Doe",
+    "value": "",
+    "name": "name",
+    "validation": "^[A-Za-z ]{3,}$",
+    "type": "text"
+  },
+  {
+    "default_value": "This is a long text field.",
+    "value": "",
+    "name": "description",
+    "validation": "^[A-Za-z0-9.,!?' ]{10,}$",
+    "type": "longtext"
+  },
+  {
+    "default_value": 25,
+    "value": "",
+    "name": "age",
+    "validation": "^\\d{1,3}$",
+    "min_value": 0,
+    "max_value": 100,
+    "type": "number"
+  },
+  {
+    "default_value": "Option 1",
+    "value": "",
+    "name": "options",
+    "options": ["Option 1", "Option 2", "Option 3"],
+    "type": "dropdown"
+  }
+]
